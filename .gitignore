@@ -1,0 +1,7 @@
+.gradle
+jenkins/jenkins_home/
+build/
+out/
+*.iml
+.idea
+.DS_Store
