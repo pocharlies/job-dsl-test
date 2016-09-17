@@ -1,5 +1,5 @@
 String basePath = 'web-hello-world-ci'
-String repo = 'pocharlies/job-dsl-test'
+String repo = 'gradle/oreilly-gradle-book-examples'
 
 folder(basePath) {
     description 'King test CI folder of web-hello-world'
@@ -13,10 +13,10 @@ job("$basePath/web-hello-world-build") {
         scm 'H/5 * * * *'
     }
     steps {
-        gradle 'clean test'
-        dsl {
-            external 'jobs/**/*Jobs.groovy'
-            additionalClasspath 'src/main/groovy'
+        gradle {
+            useWrapper true
+            tasks 'clean test'
+            rootBuildScriptDir 'web-hello-world'
         }
     }
     publishers {

@@ -1,9 +1,9 @@
-// If you want, you can define your seed job in the DSL and create it via the REST API.
-// See https://github.com/sheehan/job-dsl-gradle-example#rest-api-runner
+String basePath = 'web-hello-world-ci'
+String repo = 'pocharlies/job-dsl-test'
 
 job('seed') {
     scm {
-        github 'sheehan/job-dsl-gradle-example'
+        github repo
     }
     triggers {
         scm 'H/5 * * * *'

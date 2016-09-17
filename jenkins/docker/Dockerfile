@@ -2,7 +2,7 @@
 # Set the base image for subsequent instructions:
 #------------------------------------------------------------------------------
 
-FROM jenkins:alpine
+FROM jenkins
 
 MAINTAINER Daniel Ibáñez Fernández <me@e-dani.com>
 
