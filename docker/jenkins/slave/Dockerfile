@@ -1,10 +1,14 @@
-FROM alpine
+FROM ubuntu
 
-RUN apk --update --no-cache add bash git openssh openjdk8 \
+RUN apt-get update && apt-get -y install bash git openssh-server openjdk-8-jre groovy \
     && ssh-keygen -A \
-    && rm -rf /var/cache/apk/* \
-    && adduser -D jenkins \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && adduser --disabled-password --gecos "" jenkins \
     && echo "jenkins:jenkins" | chpasswd
+
+RUN mkdir /var/run/sshd \
+    && chmod 0755 /var/run/sshd
 
 EXPOSE 22
 

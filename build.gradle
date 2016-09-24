@@ -43,6 +43,16 @@ dependencies {
     testPlugins 'org.jenkins-ci.plugins:ghprb:1.31.4'
     testPlugins 'com.coravy.hudson.plugins.github:github:1.19.0'
 
+    // Main "engine" repo for Jenkins
+    compile group: 'org.jenkins-ci.main', name: 'jenkins-core', version: '1.549'
+
+    // Sample from old plugin package - the plus will grab the latest version found
+    compile group: 'org.jvnet.hudson.plugins', name: 'chucknorris', version: '+'
+
+    // Sample from new plugin package
+    compile group: 'org.jenkins-ci.plugins', name: 'ant', version: '1.2'
+    compile group: 'org.jenkins-ci.plugins', name: 'nested-view', version: '+'
+
     // for the RestApiScriptRunner
     compile('org.codehaus.groovy.modules.http-builder:http-builder:0.7.2') {
         exclude(module: 'groovy')

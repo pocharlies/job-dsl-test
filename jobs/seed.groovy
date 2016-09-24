@@ -5,6 +5,7 @@ job('seed') {
     scm {
         github repo
     }
+    label('slave')
     triggers {
         scm 'H/5 * * * *'
     }

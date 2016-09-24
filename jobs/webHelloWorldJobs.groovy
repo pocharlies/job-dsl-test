@@ -9,6 +9,7 @@ job("$basePath/web-hello-world-build") {
     scm {
         github repo
     }
+    label('slave')
     triggers {
         scm 'H/5 * * * *'
     }
