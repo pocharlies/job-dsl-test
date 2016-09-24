@@ -4,9 +4,12 @@ folder(basePath) {
     description 'King test CI folder of jobslsimitspace'
 }
 
-job("$basePath/generate-bulk-data") {
-    label('slave')
-    steps {
-        shell('head -c 10MB </dev/urandom >myfile')
+def generateBulkDataJobs = {
+    job("$basePath/generate-bulk-data-${it}") {
+        label('slave')
+        steps {
+            shell('head -c 100MB </dev/urandom >bulkdata.raw')
+        }
     }
 }
+1.upto(10, generateBulkDataJobs)

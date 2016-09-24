@@ -5,7 +5,8 @@ folder(basePath) {
     description 'King test CI folder of jobslsimitspace'
 }
 
-job("$basePath/generate-bulk-data") {
+
+job("$basePath/clean-Workspaces") {
     label('slave')
     scm {
         github repo
