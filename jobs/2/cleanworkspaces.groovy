@@ -7,7 +7,7 @@ folder(basePath) {
 
 
 job("$basePath/clean-Workspaces") {
-    label('slave')
+    label('master')
     scm {
         github repo
     }
