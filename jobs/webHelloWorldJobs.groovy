@@ -1,5 +1,5 @@
 String basePath = 'web-hello-world-ci'
-String repo = 'gradle/oreilly-gradle-book-examples'
+String repo = 'pocharlies/web-hello-world'
 
 folder(basePath) {
     description 'King test CI folder of web-hello-world'
@@ -16,7 +16,6 @@ job("$basePath/web-hello-world-build") {
         gradle {
             useWrapper true
             tasks 'clean test'
-            rootBuildScriptDir 'web-hello-world'
         }
     }
     publishers {
