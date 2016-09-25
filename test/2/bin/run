@@ -1,12 +1,34 @@
 #!/bin/bash
 
-JENKINS_URL='http://docker.machine'
-USER='admin'
-APITOKEN='6c7f1477ae2c05c3d78dd8a7113d4be0'
-CRUMB=$(curl --user $USER:$APITOKEN \
-    $JENKINS_URL/crumbIssuer/api/xml?xpath=concat\(//crumbRequestField,%22:%22,//crumb\))
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --user=*)
+      USER="${1#*=}"
+      ;;
+    --apitoken=*)
+      APITOKEN="${1#*=}"
+      ;;
+    --jenkins_url=*)
+      JENKINS_URL="${1#*=}"
+      ;;
+    *)
+  esac
+  shift
+done
 
+
+if [[ -z ${WORKSPACE+x} ]]; then
+    WORKSPACE=$(pwd)
+fi
+
+[[ -f "$WORKSPACE/test/config/config.env" ]] && source "$WORKSPACE/test/config/config.env" || exit 1
+[[ -f "$WORKSPACE/test/helpers" ]] && source "$WORKSPACE/test/helpers" || exit 1
+
+[[ -z "${USER_JENKINS}" ]] && echo 'Ops! USER_JENKINS is not set' && exit 1
+[[ -z "${APITOKEN_JENKINS}" ]] && echo 'Ops! APITOKEN_JENKINS is not set' && exit 1
+[[ -z "${JENKINS_URL}" ]] && echo 'Ops! JENKINS_URL is not set' && exit 1
 
 for i in {1..10}; do
-  curl -X POST "${JENKINS_URL}/job/2-10jobslimitspace/job/generate-bulk-data-${i}/build" --user admin:6c7f1477ae2c05c3d78dd8a7113d4be0 -H "$CRUMB"
+  curl -X POST "${JENKINS_URL}/job/2-scripting/job/generate-bulk-data-${i}/build" --user $USER_JENKINS:$APITOKEN_JENKINS -H $(crumb)
+  printf "${GREEN}job generate-bulk-data launched ${NC}\n"
 done
