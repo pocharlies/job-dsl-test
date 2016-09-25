@@ -1,4 +1,3 @@
-String basePath = 'web-hello-world-ci'
 String repo = 'pocharlies/job-dsl-test'
 
 job('seed') {
