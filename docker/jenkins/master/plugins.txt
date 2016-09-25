@@ -7,3 +7,5 @@ junit:1.18
 gradle:1.24
 ssh-slaves:1.11
 cloudbees-folder:5.13
+test-results-analyzer:0.3.4
+build-pipeline-plugin:1.5.4
