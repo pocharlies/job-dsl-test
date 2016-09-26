@@ -22,11 +22,10 @@ if [[ -z ${WORKSPACE+x} ]]; then
 fi
 
 [[ -f "$WORKSPACE/test/config/config.env" ]] && source "$WORKSPACE/test/config/config.env" || exit 1
-[[ -f "$WORKSPACE/test/helpers" ]] && source "$WORKSPACE/test/helpers" || exit 1
 
 [[ -z "${USER_JENKINS}" ]] && echo 'Ops! USER_JENKINS is not set' && exit 1
 [[ -z "${APITOKEN_JENKINS}" ]] && echo 'Ops! APITOKEN_JENKINS is not set' && exit 1
 [[ -z "${JENKINS_URL}" ]] && echo 'Ops! JENKINS_URL is not set' && exit 1
 
-curl -X POST "${JENKINS_URL}/job/seed/build" --user $USER_JENKINS:$APITOKEN_JENKINS -H $(crumb)
+curl -X POST "http://$USER_JENKINS:$APITOKEN_JENKINS@${JENKINS_URL}/job/seed/build?token=$APITOKEN_JENKINS"
 printf "${GREEN}pipeline web-hello-world launched ${NC}\n"

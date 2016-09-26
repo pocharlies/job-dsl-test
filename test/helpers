@@ -5,8 +5,3 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 WHITE='\033[1;37m'
 NC='\033[0m'
-
-function crumb () {
-    curl --user $USER_JENKINS:$APITOKEN_JENKINS \
-        $JENKINS_URL/crumbIssuer/api/xml?xpath=concat\(//crumbRequestField,%22:%22,//crumb\)
-}
