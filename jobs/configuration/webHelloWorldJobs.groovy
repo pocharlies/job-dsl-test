@@ -10,7 +10,6 @@ folder(basePath) {
 
 job("$basePath/web-hello-world-build") {
     customWorkspace(customWorkspacePath.toString())
-    jdk('Java8')
     scm {
         github repo
     }

@@ -1,6 +1,6 @@
 FROM ubuntu
 
-RUN apt-get update && apt-get -y install bash git openssh-server openjdk-8-jre groovy \
+RUN apt-get update && apt-get -y install bash git openssh-server openjdk-8-jdk groovy gradle \
     && ssh-keygen -A \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
