@@ -14,6 +14,7 @@ RUN /usr/local/bin/install-plugins.sh \
     groovy \
     disk-usage \
     ssh-credentials \
+    credentials \
     job-dsl \
     javadoc \
     junit \
