@@ -14,6 +14,10 @@ job('seed') {
             external 'jobs/**/*Jobs.groovy'
             additionalClasspath 'src/main/groovy'
         }
+        dsl {
+            external 'pipelines/**/*Pipelines.groovy'
+            additionalClasspath 'src/main/groovy'
+        }
     }
     publishers {
         archiveJunit 'build/test-results/**/*.xml'
