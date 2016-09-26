@@ -23,7 +23,11 @@ RUN /usr/local/bin/install-plugins.sh \
     cloudbees-folder \
     test-results-analyzer \
     build-pipeline-plugin \
-    git
+    git \
+    github \
+    pipeline-stage-view \
+    github-organization-folder \
+    workflow-aggregator
 
 #------------------------------------------------------------------------------
 # Set Number of Executors and Slave
