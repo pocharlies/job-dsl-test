@@ -1,8 +1,8 @@
 import jenkins.model.*
 import hudson.security.*
 
-String bindName = 'admin'
-String bindPassword = 'admin'
+String bindName = System.getenv("USER_JENKINS")
+String bindPassword = System.getenv("PASS_JENKINS")
 
 def instance = Jenkins.getInstance()
 

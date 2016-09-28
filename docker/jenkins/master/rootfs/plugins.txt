@@ -1,0 +1,1 @@
+groovy disk-usage ssh-credentials credentials job-dsl javadoc junit gradle ssh-slaves cloudbees-folder test-results-analyzer build-pipeline-plugin git github pipeline-stage-view github-organization-folder workflow-aggregator

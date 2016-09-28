@@ -13,6 +13,8 @@ services:
       - slave
     environment:
       - JAVA_OPTS=-Xmx512m
+      - USER_JENKINS=admin
+      - PASS_JENKINS=admin
 
   slave:
     build: slave
