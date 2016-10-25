@@ -1,7 +1,7 @@
 String basePath = "2-scripting"
 
 folder(basePath) {
-    description 'King test CI folder of jobslsimitspace'
+    description 'CI folder of jobslsimitspace'
 }
 
 def generateBulkDataJobs = {

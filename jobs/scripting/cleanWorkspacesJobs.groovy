@@ -2,7 +2,7 @@ String basePath = "2-scripting"
 String repo = 'pocharlies/job-dsl-test'
 
 folder(basePath) {
-    description 'King test CI folder of jobslsimitspace'
+    description 'CI folder of jobslsimitspace'
 }
 
 

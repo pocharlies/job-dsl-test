@@ -5,7 +5,7 @@ GString customWorkspacePath = "${home}/workspaces/${basePath}"
 
 
 folder(basePath) {
-    description 'King test CI folder of web-hello-world'
+    description 'CI folder of web-hello-world'
 }
 
 job("$basePath/web-hello-world-build") {
